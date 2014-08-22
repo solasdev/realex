@@ -20,7 +20,6 @@ module RealEx
     
       def call(url,xml)
         h = Net::HTTP.new('epage.payandshop.com', 443)
-        h.use_ssl = true
         response = h.request_post(url, xml)
         result = Nokogiri.XML(response.body)
         result
