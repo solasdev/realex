@@ -19,7 +19,7 @@ module RealEx
       end
     
       def call(url,xml)
-        h = Net::HTTP.new('epage.payandshop.com', 443, 'http://proxy:da07f9906b30-4838-948a-11817375453a@proxy-54-75-227-164.proximo.io', 80)
+        h = Net::HTTP.new('epage.payandshop.com', 443, 'http://54.75.227.164', 80)
         h.use_ssl = true
         response = h.request_post(url, xml)
         result = Nokogiri.XML(response.body)
