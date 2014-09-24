@@ -19,7 +19,8 @@ module RealEx
       end
     
       def call(url,xml)
-        h = Net::HTTP.new('epage.payandshop.com', 443, '54.72.12.1', 80)
+        proxy = URI(ENV["QUOTAGUARDSTATIC_URL"])
+        h = Net::HTTP.new('epage.payandshop.com', 443, proxy.host, proxy.port, proxy.user, proxy.password)
         h.use_ssl = true
         response = h.request_post(url, xml)
         result = Nokogiri.XML(response.body)
